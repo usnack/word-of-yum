@@ -1,4 +1,4 @@
-package com.anjoogjj.wordofyum.domain.restaurant;
+package io.usnack.wordofyum.domain.restaurant;
 
 import org.springframework.data.jpa.repository.JpaRepository;
 
