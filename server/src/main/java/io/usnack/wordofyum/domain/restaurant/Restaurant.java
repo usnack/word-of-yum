@@ -1,6 +1,7 @@
 package io.usnack.wordofyum.domain.restaurant;
 
 import io.hypersistence.utils.hibernate.type.json.JsonType;
+import io.usnack.wordofyum.domain.chat.ChatRoom;
 import io.usnack.wordofyum.domain.restaurant.vo.Location;
 import io.usnack.wordofyum.domain.review.Review;
 import jakarta.persistence.*;
@@ -27,6 +28,8 @@ public class Restaurant {
     private Location location;  // JSON 형식의 위치 데이터 (latitude와 longitude 포함)
     @OneToMany(mappedBy = "restaurant", cascade = CascadeType.ALL, orphanRemoval = true)
     private List<Review> reviews = new ArrayList<>();
+    @OneToOne(mappedBy = "restaurant", cascade = CascadeType.ALL, orphanRemoval = true)
+    private ChatRoom chatRoom;
     @Column(updatable = false)
     private LocalDateTime createdAt;
     private LocalDateTime updatedAt;

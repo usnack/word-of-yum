@@ -20,7 +20,7 @@ public class User {
     private String email;
     private String password;
     private String profileImage;
-
+    private boolean guest;
     @Column(updatable = false)
     private LocalDateTime createdAt;
 
