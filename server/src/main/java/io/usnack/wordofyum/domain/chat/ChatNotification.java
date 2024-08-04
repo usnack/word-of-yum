@@ -2,9 +2,12 @@ package io.usnack.wordofyum.domain.chat;
 
 import io.usnack.wordofyum.domain.user.User;
 import jakarta.persistence.*;
-import lombok.Data;
+import lombok.*;
 
-@Data
+
+@Getter
+@ToString
+@NoArgsConstructor(access = AccessLevel.PROTECTED)
 @Entity
 @Table(name = "chat_notifications")
 public class ChatNotification {
@@ -21,9 +24,6 @@ public class ChatNotification {
     @JoinColumn(name = "chat_room_id", nullable = false)
     private ChatRoom chatRoom;
 
-    private Long lastSeenMessageId;
+    private Long lastSeenChatMessageId = -1L;
 
-    public ChatNotification() {
-        this.lastSeenMessageId = 0L; // 초기 알림 수는 0
-    }
 }

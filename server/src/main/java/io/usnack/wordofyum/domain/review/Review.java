@@ -3,16 +3,13 @@ package io.usnack.wordofyum.domain.review;
 import io.usnack.wordofyum.domain.restaurant.Restaurant;
 import io.usnack.wordofyum.domain.user.User;
 import jakarta.persistence.*;
-import lombok.AccessLevel;
-import lombok.Data;
-import lombok.NoArgsConstructor;
-import lombok.ToString;
+import lombok.*;
 
 import java.time.LocalDateTime;
 
+@Getter
 @ToString(exclude = {"restaurant"})
 @NoArgsConstructor(access = AccessLevel.PROTECTED)
-@Data
 @Entity
 @Table(name = "reviews")
 public class Review {

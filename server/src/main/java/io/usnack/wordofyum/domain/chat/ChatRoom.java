@@ -2,14 +2,15 @@ package io.usnack.wordofyum.domain.chat;
 
 import io.usnack.wordofyum.domain.restaurant.Restaurant;
 import jakarta.persistence.*;
-import lombok.Data;
-import lombok.ToString;
+import lombok.*;
 
 import java.time.LocalDateTime;
+import java.util.ArrayList;
 import java.util.List;
 
-@ToString(exclude = {"restaurant"})
-@Data
+@Getter
+@ToString(exclude = {"restaurant", "chatMessages"})
+@NoArgsConstructor(access = AccessLevel.PROTECTED)
 @Entity
 @Table(name = "chat_rooms")
 public class ChatRoom {
@@ -23,8 +24,8 @@ public class ChatRoom {
     private Restaurant restaurant;
 
     @OneToMany(mappedBy = "chatRoom", cascade = CascadeType.ALL, orphanRemoval = true)
-    private List<Message> messages;
-    private Long lastMessageId;
+    private List<ChatMessage> chatMessages = new ArrayList<>();
+    private Long lastChatMessageId = -1L;
 
     @Column(updatable = false)
     private LocalDateTime createdAt;
@@ -39,5 +40,9 @@ public class ChatRoom {
     @PreUpdate
     protected void onUpdate() {
         this.updatedAt = LocalDateTime.now();
+    }
+
+    public ChatRoom(Restaurant restaurant) {
+        this.restaurant = restaurant;
     }
 }

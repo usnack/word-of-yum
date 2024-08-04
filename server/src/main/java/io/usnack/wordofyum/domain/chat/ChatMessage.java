@@ -2,16 +2,16 @@ package io.usnack.wordofyum.domain.chat;
 
 import io.usnack.wordofyum.domain.user.User;
 import jakarta.persistence.*;
-import lombok.Data;
-import lombok.ToString;
+import lombok.*;
 
 import java.time.LocalDateTime;
 
+@Getter
 @ToString(exclude = {"chatRoom"})
-@Data
+@NoArgsConstructor(access = AccessLevel.PROTECTED)
 @Entity
-@Table(name = "messages")
-public class Message {
+@Table(name = "chat_messages")
+public class ChatMessage {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)

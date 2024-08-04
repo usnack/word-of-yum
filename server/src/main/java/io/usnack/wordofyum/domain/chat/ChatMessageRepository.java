@@ -2,5 +2,5 @@ package io.usnack.wordofyum.domain.chat;
 
 import org.springframework.data.jpa.repository.JpaRepository;
 
-public interface MessageRepository extends JpaRepository<Message, Long> {
+public interface ChatMessageRepository extends JpaRepository<ChatMessage, Long> {
 }

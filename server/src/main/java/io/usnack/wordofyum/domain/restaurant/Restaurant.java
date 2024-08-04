@@ -5,17 +5,16 @@ import io.usnack.wordofyum.domain.chat.ChatRoom;
 import io.usnack.wordofyum.domain.restaurant.vo.Location;
 import io.usnack.wordofyum.domain.review.Review;
 import jakarta.persistence.*;
-import lombok.AccessLevel;
-import lombok.Data;
-import lombok.NoArgsConstructor;
+import lombok.*;
 import org.hibernate.annotations.Type;
 
 import java.time.LocalDateTime;
 import java.util.ArrayList;
 import java.util.List;
 
+@Getter
+@ToString
 @NoArgsConstructor(access = AccessLevel.PROTECTED)
-@Data
 @Entity
 @Table(name = "restaurants")
 public class Restaurant {
